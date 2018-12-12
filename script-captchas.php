@@ -6,6 +6,19 @@
 * SCRIPT ALLEGÉ SANS OPTIMISATION POUR LA COMPRÉHENSION
 *****************************************************************/
 
+
+/**
+ * Activation des variables de session
+ */
+session_start();
+
+/**
+ * Utilisation des caractères accentués
+ */
+
+header('Content-Type: text/html; charset=iso-8859-1');
+
+
 /****************************************************************
 * 1. PARAMETRAGE DES ATTRIBUTS VARIABLES
 *****************************************************************/
@@ -71,4 +84,7 @@ imagepng($image);
 /* DESTRUCTION DE L'IMAGE LIBÉRATION DE MÉMOIRE */
 imagedestroy($image);
 
-?>
+/**
+ * On affecte une variable de session
+ */
+$_SESSION['code'] = $code;
