@@ -20,6 +20,7 @@ header('Content-Type: text/html; charset=iso-8859-1');
 
 echo "Veuillez saisir le code de sécurité";
 echo "<br>";
+echo "<br>";
 echo "<img src='script-captchas.php' alt='captchas' />";
 ?>
 
@@ -40,15 +41,15 @@ echo "<img src='script-captchas.php' alt='captchas' />";
 
 <?php
 
-if (isset($_POST['valider']) AND !empty($_POST['code'])) {
-    $code = $_POST['code'];
-    if ($code == $_SESSION['code']) {
-        echo "Vous avez saisi le bon code";
-    }else {
-        echo "Le code est incorrect";
+if (isset($_POST['valider'])) {
+    if (!empty($_POST['code'])) {
+        $code = $_POST['code'];
+        if ($code == $_SESSION['code']) {
+            echo "Vous avez saisi le bon code";
+        } else {
+            echo "Le code est incorrect";
+        }
+    } else {
+        echo "Le code de sécurité doit être impérativement rempli";
     }
-}else{
-    echo "Le code de sécurité doit être impérativement rempli";
 }
-
-?>
